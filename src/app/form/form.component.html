@@ -1,0 +1,35 @@
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</button>
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Fill the Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- #userForm="ngForm" -->
+            <form >
+                <div class="mb-3">
+                  <label for="FirstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" name="FirstName"  [(ngModel)]="myvalue.firstName">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" name="lastName" [(ngModel)]="myvalue.lastName">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" name="email" [(ngModel)]="myvalue.email">
+                </div>
+                <div class="mb-3">
+                    <label for="Position" class="form-label">Position</label>
+                    <input type="text" class="form-control" name="Position" [(ngModel)]="myvalue.position">
+                </div>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Submit</button>
+                <button type="button" class="btn btn-danger mx-3" data-bs-dismiss="modal">Close</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

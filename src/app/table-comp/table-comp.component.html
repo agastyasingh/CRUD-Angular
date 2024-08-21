@@ -1,0 +1,164 @@
+<button type="button" class="btn btn-success" id="btnAjax" style="margin-left: -10px;">Add Using Ajax</button>
+
+<table class="table">
+    <thead>
+      <tr >
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Position</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr *ngFor="let row of userMethod.tableData">
+        <td>{{row.id}}</td>
+        <td>{{row.firstName}}</td>
+        <td>{{row.lastName}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.position}}</td>
+        <td>
+
+          <!-- ------------------Edit Button------------------------- -->
+            <button class="btn btn-info" style="margin-left: -8px;" type="button" 
+              class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editButton">Edit</button>
+
+              <div class="modal fade" id="editButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit the Fields</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form >
+                        <div class="mb-3">
+                          <label for="FirstName" class="form-label">First Name</label>
+                          <input type="text" class="form-control" name="FirstName" [(ngModel)]="newData.firstName">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                          <input type="text" class="form-control" name="lastName" [(ngModel)]="newData.lastName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Position" class="form-label">Position</label>
+                            <input type="text" class="form-control" name="Position" [(ngModel)]="newData.position">
+                        </div>
+                        <button type="button" class="btn btn-danger mx-3" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onEdit(this.row.id)">Save changes</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+            <!-- ----------------View Button----------- -->
+            <button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              View
+            </button>
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p><b>First Name:</b> &nbsp; {{row.firstName}}</p><br>
+                    <p><b>Last Name:</b> &nbsp; {{row.lastName}}</p><br>
+                    <p><b>Email:</b> &nbsp; {{row.email}}</p><br>
+                    <p><b>Position:</b> &nbsp; {{row.position}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button (click)="onDelete(row.id)" class="btn btn-danger mx-2">Delete</button>
+        </td>        
+      </tr>
+
+      <tr *ngFor="let item of data">
+        <td>{{ item.id }}</td>
+        <td>{{ item.firstName }}</td>
+        <td>{{ item.lastName }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.position }}</td>
+        <td>
+
+          <!-- ------------------Edit Button------------------------- -->
+            <button class="btn btn-info" style="margin-left: -8px;" type="button" 
+              class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editButton">Edit</button>
+
+              <div class="modal fade" id="editButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit the Fields</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form >
+                        <div class="mb-3">
+                          <label for="FirstName" class="form-label">First Name</label>
+                          <input type="text" class="form-control" name="FirstName" [(ngModel)]="userMethod.tableData.firstName">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                          <input type="text" class="form-control" name="lastName" [(ngModel)]="userMethod.tableData.lastName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Position" class="form-label">Position</label>
+                            <input type="text" class="form-control" name="Position" [(ngModel)]="userMethod.tableData.position">
+                        </div>
+                        <button type="button" class="btn btn-danger mx-3" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Save changes</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                          <!-- ----------------View Button----------- -->
+            <button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              View
+            </button>
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p><b>First Name:</b> &nbsp; {{item.firstName}}</p><br>
+                    <p><b>Last Name:</b> &nbsp; {{item.lastName}}</p><br>
+                    <p><b>Email:</b> &nbsp; {{item.email}}</p><br>
+                    <p><b>Position:</b> &nbsp; {{item.position}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button (click)="onDelete(item.id)" class="btn btn-danger mx-2">Delete</button>
+
+
+          </td>
+        
+      </tr>
+
+    </tbody>
+</table>
+
+
+
+<!-- Modal -->
+
