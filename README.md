@@ -1,4 +1,9 @@
-# Table
+# Employee-Record-Generator--Angular
+This is a Full-Stack Web-APP to Create, Update and Delete Employee Records and add them into a table.
+
+This is built using and Angular and .NET Core + Microsoft SQL Server.
+
+-.NET Core to build REST API and handle Data redirection.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 
